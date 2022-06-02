@@ -8,16 +8,18 @@ public class CharacterHealth : MonoBehaviour
     public int currentHealth; 
 
     public HealthBar healthBar;
+    protected Animator myAnim;
 
     private void Awake()
     {
+        myAnim = GetComponent<Animator>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
+        if(Input.GetKeyDown(KeyCode.L))
         {
             TakeDamage(2);
         }
@@ -27,5 +29,12 @@ public class CharacterHealth : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+        myAnim.SetTrigger("Hurt");
+
+        if(currentHealth <= 0)
+        {
+            myAnim.SetTrigger("Death");
+            GetComponent<CharacterController>().enabled = false;
+        }
     }
 }
