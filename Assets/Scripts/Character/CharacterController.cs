@@ -36,7 +36,7 @@ public class CharacterController : MonoBehaviour
     private void FixedUpdate()
     {
         Jump();
-        Run();
+		Run();
         UpdateAnimations();
     }
     
@@ -57,10 +57,10 @@ public class CharacterController : MonoBehaviour
     //Character Jump
     private void Jump()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jumpSpeed);
-        }
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			myRigidbody.AddForce(Vector2.up * jumpSpeed);
+		}
     }
 
     //Character Animations
