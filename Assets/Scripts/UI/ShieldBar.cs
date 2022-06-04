@@ -18,7 +18,7 @@ public class ShieldBar : MonoBehaviour
         slider.value = shield;
     }
 	
-	Quaternion rotation;
+	Quaternion rotation; //fix rotation
 	void Awake()
 	{
 		rotation = transform.rotation;
