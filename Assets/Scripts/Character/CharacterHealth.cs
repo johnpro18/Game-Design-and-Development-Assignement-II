@@ -54,13 +54,13 @@ public class CharacterHealth : MonoBehaviour
     {
         if(currentShield > 0)
         {
-            currentShield -= damage;
+            currentShield = Mathf.Clamp(currentShield - damage, 0, maxShield);
             shieldBar.SetShield(currentShield);
             myAnim.SetTrigger("Hurt");
         }
         else
         {
-            currentHealth -= damage;
+            currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
             healthBar.SetHealth(currentHealth);
             myAnim.SetTrigger("Hurt");
 

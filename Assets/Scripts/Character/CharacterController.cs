@@ -6,10 +6,12 @@ public class CharacterController : MonoBehaviour
 {
     private Rigidbody2D myRigidbody;
     private Animator myAnim;
+    private BoxCollider2D myBoxCollider;
     public float jumpSpeed = 5f;
     public float runSpeed = 5f;
 
     bool isFacingRight = true;
+    private bool isGround;
 
     Vector2 velocity;
 
@@ -18,6 +20,7 @@ public class CharacterController : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
+        myBoxCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -40,6 +43,11 @@ public class CharacterController : MonoBehaviour
         UpdateAnimations();
     }
     
+    void CheckGrounded()
+    {
+        isGround = myBoxCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
+    }
+
     //Character Flip
     private void Flip()
     {
@@ -59,7 +67,16 @@ public class CharacterController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jumpSpeed);
+            if(isGround)
+            {
+                    
+                    myAnim.SetBool("Jump", true);
+                    /* jumpAudio.Play(); */
+                    Vector2 jumpVel = new Vector2(0.0f, jumpSpeed);
+                    myRigidbody.velocity = Vector2.up * jumpVel;
+                    
+            }
+            
         }
     }
 
