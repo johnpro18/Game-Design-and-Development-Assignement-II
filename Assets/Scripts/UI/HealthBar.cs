@@ -17,4 +17,15 @@ public class HealthBar : MonoBehaviour
     {
         slider.value = health;
     }
+	
+	Quaternion rotation;
+	void Awake()
+	{
+		rotation = transform.rotation;
+	}
+	
+	void LateUpdate()
+	{
+		transform.rotation = rotation;
+	}
 }
