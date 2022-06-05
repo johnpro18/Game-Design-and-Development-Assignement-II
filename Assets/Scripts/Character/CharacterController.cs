@@ -67,7 +67,13 @@ public class CharacterController : MonoBehaviour
     {
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-			myRigidbody.AddForce(Vector2.up * jumpSpeed);
+            if (isGround)
+            {
+                myAnim.SetBool("Jump", true);
+                Vector2 jumpVel = new Vector2(0.0f, jumpSpeed);
+                myRigidbody.velocity = Vector2.up * jumpVel;
+            }
+            //myRigidbody.AddForce(Vector2.up * jumpSpeed);
 		}
     }
 
