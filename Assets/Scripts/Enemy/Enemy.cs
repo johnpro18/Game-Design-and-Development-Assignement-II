@@ -31,7 +31,6 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-       
         enemyCurrentHealth -= damage;
         FlashColor(flashTime);
     }
@@ -54,8 +53,7 @@ public class Enemy : MonoBehaviour
             if(myCharacterHealth != null)
             {
                 myCharacterHealth.TakeDamage(enemyDamage);
-            }
-            
+            } 
         }
     }
 }
