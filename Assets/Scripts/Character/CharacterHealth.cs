@@ -15,6 +15,8 @@ public class CharacterHealth : MonoBehaviour
     private BoxCollider2D myBoxCollider;
     private Rigidbody2D myRigidbody;
 
+    public AudioSource collectAudio;
+
     private void Awake()
     {
         myAnim = GetComponent<Animator>();
@@ -72,6 +74,33 @@ public class CharacterHealth : MonoBehaviour
                 myBoxCollider.size = deathSize;
                 GetComponent<CharacterController>().enabled = false;
                 GetComponent<CharacterWeapon>().enabled = false;
+            }
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.tag == "Heart")
+        {
+            collectAudio.Play();
+            Destroy(collider.gameObject);
+            
+            if(currentHealth < maxHealth)
+            {
+                currentHealth += 1;
+                healthBar.SetHealth(currentHealth);
+            }
+        }
+
+        if(collider.tag == "Shield")
+        {
+            collectAudio.Play();
+            Destroy(collider.gameObject);
+            
+            if(currentShield < maxShield)
+            {
+                currentShield += 1;
+                shieldBar.SetShield(currentShield);
             }
         }
     }
