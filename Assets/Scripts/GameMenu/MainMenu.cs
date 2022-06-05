@@ -1,26 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
-    /* public AudioMixer audioMixer; */
+    public AudioMixer audioMixer;
 
     public void PlayLevel1()
     {
-        /* SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); */
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         
     }
 
     public void PlayLevel2()
     {
-        /* SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2); */
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
     public void Introduction()
     {
-        /* SceneManager.LoadScene("Introduction"); */
+        SceneManager.LoadScene("Introduction");
     }
 
     public void QuitGame()
@@ -40,8 +42,8 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    /* public void SetVolume(float value)
+    public void SetVolume(float value)
     {
         audioMixer.SetFloat("MainVolume", value);
-    } */
+    }
 }

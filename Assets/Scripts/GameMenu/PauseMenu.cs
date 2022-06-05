@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;
-    /* public AudioMixer audioMixer; */
+    public AudioMixer audioMixer;
 
     public static bool GameIsPaused = false;
     public bool pause;
@@ -47,7 +49,7 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
         pause = true;
         Time.timeScale = 1.0f;
-        /* SceneManager.LoadScene("MainMenu"); */
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()
@@ -55,8 +57,8 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
     }
 
-    /* public void SetVolume(float value)
+    public void SetVolume(float value)
     {
         audioMixer.SetFloat("MainVolume", value);
-    } */
+    }
 }
