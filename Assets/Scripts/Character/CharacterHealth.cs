@@ -78,9 +78,9 @@ public class CharacterHealth : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.tag == "Heart")
+        /* if(collider.gameObject.CompareTag("Heart"))
         {
             collectAudio.Play();
             Destroy(collider.gameObject);
@@ -90,7 +90,7 @@ public class CharacterHealth : MonoBehaviour
                 currentHealth += 1;
                 healthBar.SetHealth(currentHealth);
             }
-        }
+        } */
 
         if(collider.tag == "Shield")
         {

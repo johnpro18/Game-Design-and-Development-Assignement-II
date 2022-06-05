@@ -3432,7 +3432,7 @@ GameObject:
   - component: {fileID: 354110108}
   m_Layer: 0
   m_Name: Heart
-  m_TagString: Untagged
+  m_TagString: Heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18027,6 +18027,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc108bcc38c5544f8311ce9c1f1852b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 1809377290}
+  myCharacterHealth: {fileID: 1865550360}
   jumpSpeed: 5
   runSpeed: 5
 --- !u!114 &1865550359
