@@ -272,10 +272,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51da15954247ead49bcdff61d018bb51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  minPosition: {x: 0, y: 0}
-  maxPosition: {x: 0, y: 0}
-  smoothing: 0
+  target: {fileID: 1865550357}
+  smoothing: 0.5
+  minPosition: {x: -15.69, y: -2.3}
+  maxPosition: {x: 226.5, y: 4.3}
 --- !u!4 &10148738
 Transform:
   m_ObjectHideFlags: 0
