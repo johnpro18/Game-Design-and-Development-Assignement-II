@@ -20,20 +20,4 @@ public class MovingPlatform : MonoBehaviour
         }
         transform.Translate(Direction * Time.deltaTime * obstacleSpeed);
     }
-
-    private void OnCollisionEnter2D(Collision2D collider)
-    {
-        if (collider.transform.CompareTag("Player"))
-        {
-            collider.transform.SetParent(transform);
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collider)
-    {
-        if (collider.transform.CompareTag("Player"))
-        {
-            collider.transform.SetParent(transform.parent);
-        }
-    }
 }
