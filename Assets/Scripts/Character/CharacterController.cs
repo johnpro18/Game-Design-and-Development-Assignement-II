@@ -7,6 +7,8 @@ public class CharacterController : MonoBehaviour
     private Rigidbody2D myRigidbody;
     private Animator myAnim;
     private BoxCollider2D myBoxCollider;
+    public HealthBar healthBar;
+    public CharacterHealth myCharacterHealth;
     public float jumpSpeed = 5f;
     public float runSpeed = 5f;
 
@@ -90,6 +92,20 @@ public class CharacterController : MonoBehaviour
         else
         {
             myAnim.SetBool("Jump", false);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.gameObject.CompareTag("Heart"))
+        {
+            Destroy(collider.gameObject);
+
+            if(myCharacterHealth.currentHealth < myCharacterHealth.maxHealth)
+            {
+                myCharacterHealth.currentHealth += 1;
+                healthBar.SetHealth(myCharacterHealth.currentHealth);
+            }
         }
     }
 }
