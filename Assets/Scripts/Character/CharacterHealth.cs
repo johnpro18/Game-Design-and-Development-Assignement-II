@@ -92,7 +92,7 @@ public class CharacterHealth : MonoBehaviour
             }
         } */
 
-        if(collider.tag == "Shield")
+        /* if(collider.tag == "Shield")
         {
             collectAudio.Play();
             Destroy(collider.gameObject);
@@ -102,6 +102,6 @@ public class CharacterHealth : MonoBehaviour
                 currentShield += 1;
                 shieldBar.SetShield(currentShield);
             }
-        }
+        } */
     }
 }

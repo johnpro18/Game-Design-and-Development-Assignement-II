@@ -8,7 +8,9 @@ public class CharacterController : MonoBehaviour
     private Animator myAnim;
     private BoxCollider2D myBoxCollider;
     public HealthBar healthBar;
+    public ShieldBar shieldBar;
     public CharacterHealth myCharacterHealth;
+    public CharacterHealth myCharacterShield;
     public float jumpSpeed = 5f;
     public float runSpeed = 5f;
 
@@ -105,6 +107,17 @@ public class CharacterController : MonoBehaviour
             {
                 myCharacterHealth.currentHealth += 1;
                 healthBar.SetHealth(myCharacterHealth.currentHealth);
+            }
+        }
+
+        if (collider.gameObject.CompareTag("Shield"))
+        {
+            Destroy(collider.gameObject);
+
+            if (myCharacterShield.currentShield < myCharacterShield.maxShield)
+            {
+                myCharacterShield.currentShield += 1;
+                shieldBar.SetShield(myCharacterShield.currentShield);
             }
         }
     }
