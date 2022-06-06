@@ -8,9 +8,9 @@ public class Enemy : MonoBehaviour
     private Color myColor;
     private CharacterHealth myCharacterHealth;
 
-    public int enemyCurrentHealth;
-    public int enemyDamage;
-    public float flashTime;
+    public int enemyHealth = 5;
+    public int enemyDamage = 1;
+    public float flashTime = 0.2f;
 
     // Start is called before the first frame update
     public void Start()
@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if (enemyCurrentHealth <= 0)
+        if (enemyHealth <= 0)
         {
             Destroy(gameObject);
         }
@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
        
-        enemyCurrentHealth -= damage;
+        enemyHealth -= damage;
         FlashColor(flashTime);
     }
 
